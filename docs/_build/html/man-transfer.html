@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>btrfs-sxbackup-update &mdash; btrfs-sxbackup 0.6.10 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="btrfs-sxbackup 0.6.10 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> btrfs-sxbackup
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="manpage.html">btrfs-sxbackup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-init.html">btrfs-sxbackup-init</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">btrfs-sxbackup</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>btrfs-sxbackup-update</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/man-transfer.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="btrfs-sxbackup-update">
+<h1>btrfs-sxbackup-update<a class="headerlink" href="#btrfs-sxbackup-update" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>btrfs-sxbackup update<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">usage: btrfs-sxbackup update [-h] [-sr SOURCE_RETENTION]</span>
+<span class="go">                                 [-dr DESTINATION_RETENTION] [-c] [-nc]</span>
+<span class="go">                                 subvolume [subvolume ...]</span>
+</pre></div>
+</div>
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-arg-subvolume">
+<code class="descname">subvolume</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-arg-subvolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>backup job source or destination subvolume. local path or SSH url</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-h">
+<span id="cmdoption-btrfs-sxbackup-update--help"></span><code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-sr">
+<span id="cmdoption-btrfs-sxbackup-update--source-retention"></span><code class="descname">-sr</code><code class="descclassname"> &lt;source_retention&gt;</code><code class="descclassname">, </code><code class="descname">--source-retention</code><code class="descclassname"> &lt;source_retention&gt;</code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-sr" title="Permalink to this definition">¶</a></dt>
+<dd><p>expression defining which source snapshots to retain/cleanup. can be a static number (of backups) or more complex expression like &#8220;1d:4/d, 1w:daily, 2m:none&#8221; literally translating to: &#8220;1 day from now keep 4 backups a day, 1 week from now keep daily backups, 2 months from now keep none&#8221;</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-dr">
+<span id="cmdoption-btrfs-sxbackup-update--destination-retention"></span><code class="descname">-dr</code><code class="descclassname"> &lt;destination_retention&gt;</code><code class="descclassname">, </code><code class="descname">--destination-retention</code><code class="descclassname"> &lt;destination_retention&gt;</code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-dr" title="Permalink to this definition">¶</a></dt>
+<dd><p>expression defining which destination snapshots to retain/cleanup. can be a static number (of backups) or more complex expression (see &#8211;source-retention argument)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-c">
+<span id="cmdoption-btrfs-sxbackup-update--compress"></span><code class="descname">-c</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--compress</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>enables compression during transmission. Requires lzop to be installed on both source and destination</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-btrfs-sxbackup-update-nc">
+<span id="cmdoption-btrfs-sxbackup-update--no-compress"></span><code class="descname">-nc</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-compress</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-btrfs-sxbackup-update-nc" title="Permalink to this definition">¶</a></dt>
+<dd><p>disable compression during transmission</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Transfer snapshot.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">btrfs-sxbackup(1)</em></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Marco Schindler.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
