@@ -37,6 +37,8 @@ extensions = [
     'sphinxcontrib.autoprogram',
 ]
 
+print(extensions)
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -310,14 +312,23 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('manpage', 'btrfs-sxbackup', 'Btrfs snapshot backup utility', [author], 1),
-    ('man-init', 'btrfs-sxbackup-init', 'initialize backup', [author], 1),
-    ('man-run', 'btrfs-sxbackup-run', 'run backup job', [author], 1),
-    ('man-update', 'btrfs-sxbackup-update', 'update backup job', [author], 1),
-    ('man-info', 'btrfs-sxbackup-info', 'backup job info', [author], 1),
-    ('man-purge', 'btrfs-sxbackup-purge', 'purge backups according to retention expressions', [author], 1),
-    ('man-destroy', 'btrfs-sxbackup-destroy', 'destroy backup job', [author], 1),
-    ('man-transfer', 'btrfs-sxbackup-transfer', 'transfer', [author], 1),
+#    ('man-init', 'btrfs-sxbackup-init', 'initialize backup', [author], 1),
+#    ('man-run', 'btrfs-sxbackup-run', 'run backup job', [author], 1),
+#    ('man-update', 'btrfs-sxbackup-update', 'update backup job', [author], 1),
+#    ('man-info', 'btrfs-sxbackup-info', 'backup job info', [author], 1),
+#    ('man-purge', 'btrfs-sxbackup-purge', 'purge backups according to retention expressions', [author], 1),
+#    ('man-destroy', 'btrfs-sxbackup-destroy', 'destroy backup job', [author], 1),
+##    ('man-transfer', 'btrfs-sxbackup-transfer', 'transfer', [author], 1),
 ]
+
+import glob
+import os.path
+
+for path in glob.glob("man_pages/*.rst"):
+    short = os.path.basename(path).split(".")[0]
+    man_pages.append(("man_pages/" + short, "btrfs-sxbackup-"+short, short, [author], 1))
+
+print(man_pages)
 
 # If true, show URL addresses after external links.
 #
