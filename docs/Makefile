@@ -47,6 +47,7 @@ help:
 .PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)/*
+	rm -f ./manpages/*
 
 .PHONY: html
 html:
@@ -156,6 +157,7 @@ text:
 
 .PHONY: man
 man:
+	python make_doc.py
 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
 	@echo
 	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."

@@ -11,6 +11,14 @@ from setuptools import setup
 
 from btrfs_sxbackup import __version__
 
+from setuptools.command.sdist import sdist
+
+class sdist_(sdist):
+
+    def run(self):
+        #sdist.run(self)
+        import make_doc
+        make_doc.main()
 
 if sys.version_info.major < 3:
     print('btrfs-sxbackup requires python v3.x')
@@ -39,6 +47,7 @@ setup(
 
     entry_points={
         'console_scripts': ['btrfs-sxbackup = btrfs_sxbackup.__main__:main']
-    }
+    },
+    cmdclass={'testitest': sdist_}
 )
 
